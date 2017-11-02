@@ -7,18 +7,24 @@ import { MainComponent } from './main/main.component';
 import { SearchComponent } from './search/search.component';
 import { ViewTagsComponent } from './view-tags/view-tags.component';
 
+import { SearchDataService } from './search-data.service';
+import { ResultComponent } from './result/result.component';
+import { WordComponent } from './word/word.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     SearchComponent,
-    ViewTagsComponent
+    ViewTagsComponent,
+    ResultComponent,
+    WordComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SearchDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
