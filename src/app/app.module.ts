@@ -11,6 +11,8 @@ import { SearchDataService } from './search-data.service';
 import { ResultComponent } from './result/result.component';
 import { WordComponent } from './word/word.component';
 
+import { RoutingModule } from './routing/routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { WordComponent } from './word/word.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RoutingModule
   ],
   providers: [SearchDataService],
   bootstrap: [AppComponent]

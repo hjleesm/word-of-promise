@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { SearchDataService } from '../search-data.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -7,16 +7,18 @@ import { SearchDataService } from '../search-data.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  searchWord:string = '';
+  @Input() searchWord:string = '';
 
-  constructor(private searchDataService: SearchDataService) { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
   onSearchBtn() {
     // TODO: emit to service
-    this.searchDataService.onSearchBtn(this.searchWord);
+    // this.searchDataService.onSearchBtn(this.searchWord);
+    this.router.navigate(['/result', this.searchWord]);
+    
   }
 
 }
