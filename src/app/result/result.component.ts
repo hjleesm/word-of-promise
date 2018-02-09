@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -9,14 +8,11 @@ import { Location } from '@angular/common';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  private searchWord:string;
+  private searchWord: string;
 
   constructor(
-    private route: ActivatedRoute,
     private location: Location) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('searchWord');
-    this.searchWord = id;
   }
 }
