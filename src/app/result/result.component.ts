@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SearchDataService } from '../search-data.service';
 
 @Component({
   selector: 'app-result',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  private searchWord: string;
+  @Input() searchWord = '';
 
-  constructor() { }
+  constructor(private searchDataService: SearchDataService) {
+    searchDataService.onSearch.subscribe(function(value) {
+      console.log(value);
+    });
+  }
 
   ngOnInit() {
+    this.searchDataService.searchResultByWord(this.searchWord);
   }
 }

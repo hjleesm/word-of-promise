@@ -8,11 +8,16 @@ import { PageService } from './page.service';
 })
 export class AppComponent {
   title = 'app';
-  mode: number;
+  page: number;
+  searchWord: string;
 
   constructor(private pageService: PageService) {
-    this.mode = pageService.getPage();
+    this.page = pageService.getPage();
 
-    pageService.onMovePage.subscribe( value => this.mode = value.page );
+    const self = this;
+    pageService.onMovePage.subscribe(function(value) {
+      self.page = value.page;
+      self.searchWord = value.searchWord;
+    });
   }
 }

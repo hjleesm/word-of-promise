@@ -1,3 +1,3 @@
-<app-main *ngIf="mode === this.pageService.PAGES.main"></app-main>
-<app-result *ngIf="mode === this.pageService.PAGES.result"></app-result>
-<app-edit *ngIf="mode === this.pageService.PAGES.edit"></app-edit>
+<app-main *ngIf="page === this.pageService.PAGES.main"></app-main>
+<app-result *ngIf="page === this.pageService.PAGES.result" [searchWord]="searchWord"></app-result>
+<app-edit *ngIf="page === this.pageService.PAGES.edit"></app-edit>

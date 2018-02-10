@@ -13,8 +13,11 @@ export class PageService {
 
   constructor() { }
 
-  movePage(page: number) {
-    this.onMovePage.emit({page: page});
+  movePage(value) {
+    if (this.page !== value.page) {
+      this.onMovePage.emit(value);
+      this.page = value.page;
+    }
   }
 
   getPage() {
