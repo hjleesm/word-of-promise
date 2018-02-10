@@ -7,7 +7,7 @@ export class SearchDataService {
 
   constructor() { }
 
-  onSearchBtn(searchWord:string) {
+  onSearchBtn(searchWord: string) {
     console.log(searchWord + ' clicked!');
     this.onSearch.emit({});
   }

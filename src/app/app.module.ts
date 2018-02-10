@@ -7,9 +7,14 @@ import { MainComponent } from './main/main.component';
 import { SearchComponent } from './search/search.component';
 import { ViewTagsComponent } from './view-tags/view-tags.component';
 
+// Custom SERVICE
 import { SearchDataService } from './search-data.service';
+import { PageService} from './page.service';
+
+// Custom COMPONENT
 import { ResultComponent } from './result/result.component';
 import { WordComponent } from './word/word.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +23,14 @@ import { WordComponent } from './word/word.component';
     SearchComponent,
     ViewTagsComponent,
     ResultComponent,
-    WordComponent
+    WordComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [SearchDataService],
+  providers: [SearchDataService, PageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

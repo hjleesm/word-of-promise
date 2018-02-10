@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Location } from '@angular/common';
-
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
@@ -10,8 +8,7 @@ import { Location } from '@angular/common';
 export class ResultComponent implements OnInit {
   private searchWord: string;
 
-  constructor(
-    private location: Location) { }
+  constructor() { }
 
   ngOnInit() {
   }

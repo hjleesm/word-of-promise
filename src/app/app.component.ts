@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PageService } from './page.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  mode: number;
+
+  constructor(private pageService: PageService) {
+    this.mode = pageService.getPage();
+
+    pageService.onMovePage.subscribe( value => this.mode = value.page );
+  }
 }
