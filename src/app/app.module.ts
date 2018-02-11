@@ -16,6 +16,8 @@ import { PageService} from './page.service';
 import { ResultComponent } from './result/result.component';
 import { WordComponent } from './word/word.component';
 import { EditComponent } from './edit/edit.component';
+import { TagComponent } from './tag/tag.component';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { EditComponent } from './edit/edit.component';
     ViewTagsComponent,
     ResultComponent,
     WordComponent,
-    EditComponent
+    EditComponent,
+    TagComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,

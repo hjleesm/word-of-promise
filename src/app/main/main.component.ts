@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageService } from '../page.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pageService: PageService) { }
 
   ngOnInit() {
+  }
+
+  onEditBtn() {
+    this.pageService.movePage({page: this.pageService.PAGES.edit});
   }
 
 }

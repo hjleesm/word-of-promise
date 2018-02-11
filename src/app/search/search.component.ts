@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
 
   onSearchBtn() {
     if (this.pageService.getPage() === this.pageService.PAGES.result) {
-      this.searchDataService.searchResultByWord(this.searchWord);
+      this.searchDataService.searchByTag(this.searchWord);
     } else {
       this.pageService.movePage({
         page: this.pageService.PAGES.result,

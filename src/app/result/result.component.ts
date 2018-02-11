@@ -24,17 +24,21 @@ export class ResultComponent implements OnInit {
         }
 
         self.result.push(new Word(
-          word.book,
-          word.chapter,
-          word.verse,
+          +word.book,
+          +word.chapter,
+          +word.verse,
           word.content,
           tags
         ));
       }
     });
+
+    searchDataService.onChangeSearchWord.subscribe(function(value) {
+      self.searchWord = value;
+    });
   }
 
   ngOnInit() {
-    this.searchDataService.searchResultByWord(this.searchWord);
+    this.searchDataService.searchByTag(this.searchWord);
   }
 }

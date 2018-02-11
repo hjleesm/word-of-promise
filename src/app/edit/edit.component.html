@@ -1,3 +1,14 @@
-<p>
-  edit works!
-</p>
+<app-logo></app-logo>
+<select [ngModel]="selectedBook" (ngModelChange)="updateSelectedBook($event)">
+    <option *ngFor="let book of books" [value]="book">{{book}}</option>
+</select>
+  
+<select [ngModel]="selectedChapter" (ngModelChange)="updateSelectedChapter($event)">
+  <option *ngFor="let c of chapters" [value]="c">{{c}}장</option>
+</select>
+
+<select [ngModel]="selectedVerse" (ngModelChange)="updateSelectedVerse($event)">
+    <option *ngFor="let v of verse" [value]="v">{{v}}절</option>
+</select>
+
+<app-word *ngIf="word !== undefined" [word]="word"></app-word>
