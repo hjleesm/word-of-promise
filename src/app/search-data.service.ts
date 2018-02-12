@@ -32,4 +32,11 @@ export class SearchDataService {
       this.onSearch.emit(data);
     });
   }
+
+  public applyTags(book, chapter, verse, tags) {
+    this.http.put(
+      API_URL + '/api/bibles/' + book + '/' + chapter + '/' + verse,
+      {tag: tags}
+    );
+  }
 }

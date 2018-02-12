@@ -97,4 +97,5 @@ export class EditComponent implements OnInit {
   }
 
   // TODO: 소스 정리 하기
+  // TODO: 말씀 변경시 Tag 리스트도 변경되도록 수정.
 }

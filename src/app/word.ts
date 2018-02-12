@@ -95,11 +95,11 @@ export class Word {
     }
 
     constructor(
-       private book: number,
-       private chapter: number,
-       private verse: number,
-       private content: string,
-       private tags: string[]
+       public book: number,
+       public chapter: number,
+       public verse: number,
+       public content: string,
+       public tags: string[]
     ) { }
 
     getBook() {
