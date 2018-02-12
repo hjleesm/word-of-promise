@@ -9,7 +9,7 @@ import { SearchDataService } from '../search-data.service';
 })
 export class EditTagComponent implements OnInit {
   @Input() word: Word;
-  tags;
+  @Input() tags;
 
   constructor(private searchDataService: SearchDataService) { }
 
@@ -19,7 +19,9 @@ export class EditTagComponent implements OnInit {
 
   applyTags() {
     this.searchDataService.applyTags(this.word.book, this.word.chapter,
-      this.word.verse, this.tags.split(', '));
+      this.word.verse, this.tags.split(', ')).subscribe(res => {
+        this.word.tags = this.tags.split(', ');
+      });
   }
 
 }

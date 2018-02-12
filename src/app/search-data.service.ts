@@ -34,9 +34,13 @@ export class SearchDataService {
   }
 
   public applyTags(book, chapter, verse, tags) {
-    this.http.put(
+    if (book < 10) {
+      book = '0' + book;
+    }
+
+    return this.http.put(
       API_URL + '/api/bibles/' + book + '/' + chapter + '/' + verse,
-      {tag: tags}
+      {'tag': tags}
     );
   }
 }
