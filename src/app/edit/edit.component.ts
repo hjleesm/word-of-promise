@@ -48,6 +48,7 @@ export class EditComponent implements OnInit {
 
     this.updateChapter();
     this.updateVerse();
+    this.getWord();
   }
 
   updateSelectedBook(changedBook: string): void {
@@ -57,18 +58,20 @@ export class EditComponent implements OnInit {
 
     this.updateChapter();
     this.updateVerse();
+    this.getWord();
   }
 
   updateSelectedChapter(changedChapter: string): void {
     this.selectedChapter = changedChapter;
+    this.selectedVerse = '1';
 
     this.updateVerse();
+    this.getWord();
   }
 
   updateSelectedVerse(changedVerse: string): void {
     this.selectedVerse = changedVerse;
-
-    this.searchDataService.search(this.books.indexOf(this.selectedBook) + 1, this.selectedChapter, this.selectedVerse);
+    this.getWord();
   }
 
   updateChapter() {
@@ -89,6 +92,9 @@ export class EditComponent implements OnInit {
     }
   }
 
-  // TODO: 초기 로딩시 성경 말씀 가지고 오기.
-  // TODO: book이나 chapter 변경시 변경된 말씀 가지고 오기.
+  getWord() {
+    this.searchDataService.search(this.books.indexOf(this.selectedBook) + 1, this.selectedChapter, this.selectedVerse);
+  }
+
+  // TODO: 소스 정리 하기
 }

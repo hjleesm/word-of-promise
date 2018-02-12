@@ -105,4 +105,8 @@ export class Word {
     getBook() {
         return Word.bookList[this.book - 1];
     }
+
+    getTagString() {
+        return this.tags.join(', ');
+    }
 }

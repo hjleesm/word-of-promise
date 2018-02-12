@@ -18,6 +18,7 @@ import { WordComponent } from './word/word.component';
 import { EditComponent } from './edit/edit.component';
 import { TagComponent } from './tag/tag.component';
 import { LogoComponent } from './logo/logo.component';
+import { EditTagComponent } from './edit-tag/edit-tag.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LogoComponent } from './logo/logo.component';
     WordComponent,
     EditComponent,
     TagComponent,
-    LogoComponent
+    LogoComponent,
+    EditTagComponent
   ],
   imports: [
     BrowserModule,
