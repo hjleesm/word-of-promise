@@ -43,4 +43,10 @@ export class SearchDataService {
       {'tag': tags}
     );
   }
+
+  public getTagList() {
+    return this.http.get(
+      API_URL + '/api/tags'
+    );
+  }
 }
