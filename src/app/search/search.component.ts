@@ -19,6 +19,11 @@ export class SearchComponent implements OnInit {
   }
 
   onSearchBtn() {
+    this.searchWord = this.searchWord.trim();
+    if (this.searchWord === '') {
+      return;
+    }
+
     if (this.pageService.getPage() === this.pageService.PAGES.result) {
       this.searchDataService.searchByTag(this.searchWord);
     } else {
