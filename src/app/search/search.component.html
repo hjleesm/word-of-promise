@@ -1,1 +1,3 @@
-#<input type="text" name="search-word" id="search-word" [(ngModel)]="searchWord"><input type="button" value="Search" (click)="onSearchBtn()">
+#<input type="text" name="search-word" id="search-word" 
+    [(ngModel)]="searchWord" (keyup.enter)="onSearchBtn()">
+<input type="button" value="Search" (click)="onSearchBtn()">
