@@ -1,0 +1,6 @@
+#wop-result {
+    -webkit-flex: initial;
+          flex: initial;
+    width: 600px;
+    min-width: 200px;
+}
