@@ -1,4 +1,4 @@
 <div id="wop-result">
-    <app-logo></app-logo><app-search [searchWord]="searchWord"></app-search>
+    <app-logo [isBig]="false"></app-logo><app-search [searchWord]="searchWord"></app-search>
     <app-word *ngFor="let word of result" [word]="word"></app-word>
 </div>

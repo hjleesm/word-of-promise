@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PageService } from '../page.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { PageService } from '../page.service';
   styleUrls: ['./logo.component.css']
 })
 export class LogoComponent implements OnInit {
+  @Input() isBig: boolean;
 
   constructor(private pageService: PageService) { }
 

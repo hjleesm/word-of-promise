@@ -1,3 +1,11 @@
 #wop-logo {
     cursor: pointer;
 }
+
+.wop-logo-big {
+    font-size: 30px;
+}
+
+.wop-logo-small {
+    font-size: 20px;
+}
