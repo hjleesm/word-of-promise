@@ -1,4 +1,11 @@
 <div id="wop-result">
-    <app-logo [isBig]="false"></app-logo><app-search [searchWord]="searchWord"></app-search>
-    <app-word *ngFor="let word of result" [word]="word"></app-word>
+    <div align="left">
+        <app-logo [isBig]="false"></app-logo>
+        <div id="wop-search-wrapper">
+            <app-search [searchWord]="searchWord"></app-search>
+        </div>
+    </div>
+    <div align="left">
+        <app-word *ngFor="let word of result" [word]="word"></app-word>
+    </div>
 </div>

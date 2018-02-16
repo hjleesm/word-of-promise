@@ -1,18 +1,24 @@
 <div id="wop-edit">
-    <app-logo [isBig]="false"></app-logo>
-    <select [ngModel]="selectedBook" (ngModelChange)="updateSelectedBook($event)">
-        <option *ngFor="let book of books" [value]="book">{{book}}</option>
-    </select>
-      
-    <select [ngModel]="selectedChapter" (ngModelChange)="updateSelectedChapter($event)">
-      <option *ngFor="let c of chapters" [value]="c">{{c}}장</option>
-    </select>
-    
-    <select [ngModel]="selectedVerse" (ngModelChange)="updateSelectedVerse($event)">
-        <option *ngFor="let v of verse" [value]="v">{{v}}절</option>
-    </select>
-    
-    <app-word *ngIf="word !== undefined" [word]="word"></app-word>
-    
+    <div align="left">
+        <span id="wop-edit-logo">
+            <app-logo [isBig]="false"></app-logo>
+        </span>
+        <span id="wop-edit-select">
+            <select [ngModel]="selectedBook" (ngModelChange)="updateSelectedBook($event)">
+                <option *ngFor="let book of books" [value]="book">{{book}}</option>
+            </select>
+            
+            <select [ngModel]="selectedChapter" (ngModelChange)="updateSelectedChapter($event)">
+            <option *ngFor="let c of chapters" [value]="c">{{c}}장</option>
+            </select>
+            
+            <select [ngModel]="selectedVerse" (ngModelChange)="updateSelectedVerse($event)">
+                <option *ngFor="let v of verse" [value]="v">{{v}}절</option>
+            </select>
+        </span>
+    </div>
+    <div align="left">
+        <app-word *ngIf="word !== undefined" [word]="word"></app-word>
+    </div>
     <app-edit-tag *ngIf="word !== undefined" [word]="word" [tags]="word.getTagString()"></app-edit-tag>
 </div>

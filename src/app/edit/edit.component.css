@@ -1,2 +1,10 @@
 #wop-edit {
 }
+
+#wop-edit-logo {
+    /* float: left; */
+}
+
+#wop-edit-select {
+    float: right;
+}
