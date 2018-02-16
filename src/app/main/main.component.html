@@ -1,5 +1,7 @@
 <div id="wop-main">
-    <app-logo [isBig]="true"></app-logo><br>
+    <div id = "wop-logo-wrapper">
+        <app-logo [isBig]="true"></app-logo><br>
+    </div>
     <app-search></app-search><input type="button" value="Edit Tag" (click)="onEditBtn()">
     <br><br><app-view-tags></app-view-tags>
 </div>

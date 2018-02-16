@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 #wop-container {
     font-family: 'Nanum Gothic', sans-serif;
+
+    min-width: 200px;
+    max-width: 600px;
 }

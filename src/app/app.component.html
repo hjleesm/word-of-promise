@@ -1,5 +1,7 @@
-<div id="wop-container">
-    <app-main *ngIf="page === this.pageService.PAGES.main"></app-main>
-    <app-result *ngIf="page === this.pageService.PAGES.result" [searchWord]="searchWord"></app-result>
-    <app-edit *ngIf="page === this.pageService.PAGES.edit"></app-edit>
+<div align="center">
+    <div id="wop-container">
+        <app-main *ngIf="page === this.pageService.PAGES.main"></app-main>
+        <app-result *ngIf="page === this.pageService.PAGES.result" [searchWord]="searchWord"></app-result>
+        <app-edit *ngIf="page === this.pageService.PAGES.edit"></app-edit>
+    </div>
 </div>

@@ -18,9 +18,17 @@ export class EditTagComponent implements OnInit {
   }
 
   applyTags() {
+    let tagArray;
+
+    if (this.tags.trim() === '') {
+      tagArray = [];
+    } else {
+      tagArray = this.tags.split(', ');
+    }
+
     this.searchDataService.applyTags(this.word.book, this.word.chapter,
-      this.word.verse, this.tags.split(', ')).subscribe(res => {
-        this.word.tags = this.tags.split(', ');
+      this.word.verse, tagArray).subscribe(res => {
+        this.word.tags = tagArray;
       });
   }
 
