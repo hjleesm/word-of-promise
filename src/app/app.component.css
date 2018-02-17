@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 #wop-container {
     font-family: 'Nanum Gothic', sans-serif;

@@ -21,6 +21,11 @@ import { LogoComponent } from './logo/logo.component';
 import { EditTagComponent } from './edit-tag/edit-tag.component';
 import { BottomComponent } from './bottom/bottom.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+
+import 'hammerjs';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +43,10 @@ import { BottomComponent } from './bottom/bottom.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [SearchDataService, PageService],
   bootstrap: [AppComponent]
