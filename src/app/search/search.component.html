@@ -1,3 +1,5 @@
-<b>#</b><input type="text" name="search-word" id="search-word" 
+<b>#</b><mat-form-field>
+<input matInput placeholder="Tag" name="search-word" id="search-word" 
     [(ngModel)]="searchWord" (keyup.enter)="onSearchBtn()">
-<input type="button" value="Search" (click)="onSearchBtn()">
+</mat-form-field>
+<button mat-raised-button (click)="onSearchBtn()">Search</button>

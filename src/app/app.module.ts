@@ -22,7 +22,14 @@ import { EditTagComponent } from './edit-tag/edit-tag.component';
 import { BottomComponent } from './bottom/bottom.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatInputModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatAutocompleteModule,
+  MatSelectModule
+} from '@angular/material';
 
 import 'hammerjs';
 
@@ -45,8 +52,13 @@ import 'hammerjs';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    MatInputModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatButtonToggleModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatAutocompleteModule,
+    MatSelectModule
   ],
   providers: [SearchDataService, PageService],
   bootstrap: [AppComponent]

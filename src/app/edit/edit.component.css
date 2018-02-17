@@ -8,3 +8,9 @@
 #wop-edit-select {
     float: right;
 }
+
+.wop-select-size {
+    width: 100px;
+
+    font-size: 12px;
+}
