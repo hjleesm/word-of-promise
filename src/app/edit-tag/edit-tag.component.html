@@ -1,7 +1,6 @@
 <div align="left">
     <b>Tags: </b><mat-form-field>
-        <input matInput placeholder="Tag" name="search-word" id="wop-tag-input" 
-            [(ngModel)]="tags" (keyup.enter)="onSearchBtn()">
+        <input matInput placeholder="Tags" id="wop-tag-input" [(ngModel)]="tags">
     </mat-form-field>
     <button mat-raised-button (click)="applyTags()">적용</button>
 </div>
