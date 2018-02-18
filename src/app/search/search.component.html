@@ -1,5 +1,7 @@
-<b>#</b><mat-form-field class="search-word-cls">
+<b>#</b><mat-form-field [ngClass]="{'wop-search-big': isBig, 'wop-search-small': !isBig}">
 <input matInput placeholder="Tag" name="search-word" id="search-word" 
     [(ngModel)]="searchWord" (keyup.enter)="onSearchBtn()">
-</mat-form-field><br>
-<button mat-raised-button (click)="onSearchBtn()">Search</button>
+</mat-form-field>
+<br *ngIf="isBig">
+<button *ngIf="isBig" mat-raised-button (click)="onSearchBtn()">Search</button>
+<button class="wop-search-btn" *ngIf="!isBig" mat-mini-fab (click)="onSearchBtn()">Search</button>

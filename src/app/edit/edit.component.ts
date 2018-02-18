@@ -14,8 +14,8 @@ export class EditComponent implements OnInit {
   word: Word = undefined;
 
   selectedBook: string;
-  selectedChapter: string;
-  selectedVerse: string;
+  selectedChapter;
+  selectedVerse;
 
   constructor(private searchDataService: SearchDataService) {
     const self = this;
@@ -43,8 +43,8 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this.books = Word.getBookList();
     this.selectedBook = this.books[0];
-    this.selectedChapter = '1';
-    this.selectedVerse = '1';
+    this.selectedChapter = 1;
+    this.selectedVerse = 1;
 
     this.updateChapter();
     this.updateVerse();
@@ -53,8 +53,8 @@ export class EditComponent implements OnInit {
 
   updateSelectedBook(changedBook: string): void {
     this.selectedBook = changedBook;
-    this.selectedChapter = '1';
-    this.selectedVerse = '1';
+    this.selectedChapter = 1;
+    this.selectedVerse = 1;
 
     this.updateChapter();
     this.updateVerse();
@@ -63,7 +63,7 @@ export class EditComponent implements OnInit {
 
   updateSelectedChapter(changedChapter: string): void {
     this.selectedChapter = changedChapter;
-    this.selectedVerse = '1';
+    this.selectedVerse = 1;
 
     this.updateVerse();
     this.getWord();

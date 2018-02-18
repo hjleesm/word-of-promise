@@ -1,16 +1,19 @@
-#wop-edit {
-}
-
-#wop-edit-logo {
-    /* float: left; */
+.wop-edit-top {
+    margin-bottom: 20px;
 }
 
 #wop-edit-select {
     float: right;
 }
 
-.wop-select-size {
-    width: 100px;
+.wop-select-book {
+    width: 110px;
+
+    font-size: 12px;
+}
+
+.wop-select-chapterAndVerse {
+    width: 50px;
 
     font-size: 12px;
 }

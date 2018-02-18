@@ -1,3 +1,11 @@
-.search-word-cls {
+.wop-search-big {
     width: 250px;
+}
+
+.wop-search-small {
+    width: 100px;
+}
+
+.wop-search-btn {
+    font-size: 12px;
 }

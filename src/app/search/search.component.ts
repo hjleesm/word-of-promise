@@ -9,6 +9,7 @@ import { SearchDataService } from '../search-data.service';
 })
 export class SearchComponent implements OnInit {
   @Input() searchWord = '';
+  isBig = true;
 
   constructor(
     private pageService: PageService,
@@ -16,6 +17,9 @@ export class SearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.pageService.getPage() === this.pageService.PAGES.result) {
+      this.isBig = false;
+    }
   }
 
   onSearchBtn() {
