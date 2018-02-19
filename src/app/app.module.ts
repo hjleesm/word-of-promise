@@ -32,6 +32,7 @@ import { MatInputModule,
 } from '@angular/material';
 
 import 'hammerjs';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import 'hammerjs';
     TagComponent,
     LogoComponent,
     EditTagComponent,
-    BottomComponent
+    BottomComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

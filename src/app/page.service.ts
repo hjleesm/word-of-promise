@@ -5,7 +5,8 @@ export class PageService {
   PAGES = {
     main: 0,
     result: 1,
-    edit: 2
+    edit: 2,
+    signUp: 3
   };
   private page = this.PAGES.main;
 
