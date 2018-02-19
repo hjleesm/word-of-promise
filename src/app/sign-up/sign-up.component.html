@@ -6,16 +6,14 @@
   </div>
 
   <h2>Create your Account</h2>
-  <form>
-    <mat-form-field>
-      <input matInput placeholder="Enter your id">
-    </mat-form-field><br>
-    <mat-form-field>
-      <input matInput type="password" placeholder="Enter your password">
-    </mat-form-field><br>
-    <mat-form-field>
-      <input matInput type="password" placeholder="Confirm your password ">
-    </mat-form-field><br><br>
-    <button mat-raised-button color="primary">Create New Account</button>
-  </form>
+  <mat-form-field>
+    <input [(ngModel)]="id" matInput placeholder="Enter your id">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput type="password" placeholder="Enter your password" [(ngModel)]="password">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput type="password" placeholder="Confirm your password " [(ngModel)]="password_confirm">
+  </mat-form-field><br><br>
+  <button mat-raised-button color="primary" (click)="onSubmit()">Create New Account</button>
 </div>
