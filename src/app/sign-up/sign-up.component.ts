@@ -17,7 +17,7 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     if (this.id.length < 3) {
-      alert('The password must have at least 3 characters!');
+      alert('The id must have at least 3 characters!');
       return;
     }
 
