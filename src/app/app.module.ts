@@ -11,6 +11,7 @@ import { ViewTagsComponent } from './view-tags/view-tags.component';
 // Custom SERVICE
 import { SearchDataService } from './search-data.service';
 import { PageService} from './page.service';
+import { AccountService } from './account.service';
 
 // Custom COMPONENT
 import { ResultComponent } from './result/result.component';
@@ -62,7 +63,11 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MatAutocompleteModule,
     MatSelectModule
   ],
-  providers: [SearchDataService, PageService],
+  providers: [
+    SearchDataService,
+    PageService,
+    AccountService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
