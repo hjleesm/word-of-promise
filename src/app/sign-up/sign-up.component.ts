@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,7 +11,7 @@ export class SignUpComponent implements OnInit {
   @Input() password = '';
   @Input() password_confirm = '';
 
-  constructor() { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit() {
   }
@@ -30,5 +31,7 @@ export class SignUpComponent implements OnInit {
       alert('Confirm password and password do not match!');
       return;
     }
+
+    this.accountService.create(this.id, this.password);
   }
 }

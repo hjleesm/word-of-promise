@@ -1,0 +1,11 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class AccountService {
+
+  constructor() { }
+
+  create(id, password) {
+
+  }
+}
