@@ -13,7 +13,10 @@
     <input matInput type="password" placeholder="Enter your password" [(ngModel)]="password">
   </mat-form-field><br>
   <mat-form-field>
-    <input matInput type="password" placeholder="Confirm your password " [(ngModel)]="password_confirm">
+    <input matInput type="password" placeholder="Confirm your password" [(ngModel)]="password_confirm">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Enter your e-mail address" [(ngModel)]="email">
   </mat-form-field><br><br>
   <button mat-raised-button color="primary" (click)="onSubmit()">Create New Account</button>
 </div>

@@ -6,10 +6,14 @@ import { AccountService } from '../account.service';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
+
 export class SignUpComponent implements OnInit {
+  EMAIL_REGEXP = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+
   @Input() id = '';
   @Input() password = '';
   @Input() password_confirm = '';
+  @Input() email = '';
 
   constructor(private accountService: AccountService) { }
 
@@ -29,6 +33,11 @@ export class SignUpComponent implements OnInit {
 
     if (this.password !== this.password_confirm) {
       alert('Confirm password and password do not match!');
+      return;
+    }
+
+    if (!this.EMAIL_REGEXP.test(this.email)) {
+      alert('Invalid email address!');
       return;
     }
 
