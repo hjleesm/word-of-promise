@@ -14,6 +14,25 @@ export class AccountService {
       id: id,
       password: password,
       email: email
+    }).subscribe(data => {
+      const body = data.json();
+      if (body.result === 1) {
+        // TODO: Success!
+      } else {
+        // TODO: fail!
+      }
     });
+  }
+
+  checkId(id) {
+    return this.http.get(API_URL + '/api/account/exist/' + id)
+      .subscribe(data => {
+        const body = data.json();
+        if (body.exist) {
+          // TODO: Success!
+        } else {
+          // TODO: fail!
+        }
+      });
   }
 }
