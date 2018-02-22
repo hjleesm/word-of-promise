@@ -1,7 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { environment } from '../environments/environment';
 import { Http, Response } from '@angular/http';
-import 'rxjs/add/operator/map';
 
 const API_URL = environment.apiUrl;
 

@@ -41,6 +41,14 @@ export class SignUpComponent implements OnInit {
       return;
     }
 
-    this.accountService.create(this.id, this.password);
+    this.accountService.create(this.id, this.password, this.email)
+      .subscribe(data => {
+        const body = data.json();
+        if (body.result === 1) {
+          // TODO: Success!
+        } else {
+          // TODO: fail!
+        }
+      });
   }
 }
