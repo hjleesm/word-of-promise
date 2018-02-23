@@ -15,14 +15,22 @@ export class SignUpComponent implements OnInit {
   @Input() password_confirm = '';
   @Input() email = '';
 
+  checkedId = false;
+
   constructor(private accountService: AccountService) { }
 
   ngOnInit() {
+    this.onCheckId();
   }
 
   onSubmit() {
     if (this.id.length < 3) {
       alert('The id must have at least 3 characters!');
+      return;
+    }
+
+    if (!this.checkedId) {
+      alert('You must check id.');
       return;
     }
 
@@ -43,4 +51,26 @@ export class SignUpComponent implements OnInit {
 
     this.accountService.create(this.id, this.password, this.email);
   }
+
+  onCheckIdBtn() {
+    if (this.id.length < 3) {
+      alert('The id must have at least 3 characters!');
+      return;
+    }
+
+    this.accountService.checkId(this.id);
+  }
+
+  onCheckId() {
+    this.accountService.onCheck.subscribe(result => {
+      if (result) {
+        alert('Id already in use by another user.');
+        this.checkedId = false;
+      } else {
+        alert('This id is available!');
+        this.checkedId = true;
+      }
+    });
+  }
+
 }

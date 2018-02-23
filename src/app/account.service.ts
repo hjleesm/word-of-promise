@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { environment } from '../environments/environment';
 import { Http, Response } from '@angular/http';
 
@@ -6,6 +6,8 @@ const API_URL = environment.apiUrl;
 
 @Injectable()
 export class AccountService {
+  onCreate: EventEmitter<any> = new EventEmitter();
+  onCheck: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: Http) { }
 
@@ -29,9 +31,9 @@ export class AccountService {
       .subscribe(data => {
         const body = data.json();
         if (body.exist) {
-          // TODO: Success!
+          this.onCheck.emit(true);
         } else {
-          // TODO: fail!
+          this.onCheck.emit(false);
         }
       });
   }

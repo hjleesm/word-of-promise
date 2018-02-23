@@ -8,7 +8,9 @@
   <h2>Create your Account</h2>
   <mat-form-field>
     <input [(ngModel)]="id" matInput placeholder="Enter your id">
-  </mat-form-field><br>
+  </mat-form-field><span id="wop-check-btn">
+    <button mat-button color="primary" (click)="onCheckIdBtn()">Check ID</button>
+  </span><br>
   <mat-form-field>
     <input matInput type="password" placeholder="Enter your password" [(ngModel)]="password">
   </mat-form-field><br>
