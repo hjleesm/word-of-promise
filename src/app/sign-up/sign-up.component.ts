@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
   @Input() email = '';
 
   checkedId = false;
+  isSubmitted = false;
 
   constructor(private accountService: AccountService) { }
 
@@ -24,6 +25,11 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.isSubmitted) {
+      alert('This account already is submitted!');
+      return;
+    }
+
     if (this.id.length < 3) {
       alert('The id must have at least 3 characters!');
       return;
@@ -50,6 +56,7 @@ export class SignUpComponent implements OnInit {
     }
 
     this.accountService.create(this.id, this.password, this.email);
+    this.isSubmitted = true;
   }
 
   onCheckIdBtn() {
