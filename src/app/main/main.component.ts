@@ -17,6 +17,10 @@ export class MainComponent implements OnInit {
     this.pageService.movePage({page: this.pageService.PAGES.edit});
   }
 
+  onLoginBtn() {
+    this.pageService.movePage({page: this.pageService.PAGES.login});
+  }
+
   onSignUpBtn() {
     this.pageService.movePage({page: this.pageService.PAGES.signUp});
   }
