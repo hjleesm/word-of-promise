@@ -19,9 +19,9 @@ export class AccountService {
     }).subscribe(data => {
       const body = data.json();
       if (body.result === 1) {
-        // TODO: Success!
+        this.onCreate.emit(true);
       } else {
-        // TODO: fail!
+        this.onCreate.emit(false);
       }
     });
   }

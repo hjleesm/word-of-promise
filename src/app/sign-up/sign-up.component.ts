@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AccountService } from '../account.service';
+import { PageService } from '../page.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,10 +19,14 @@ export class SignUpComponent implements OnInit {
   checkedId = false;
   isSubmitted = false;
 
-  constructor(private accountService: AccountService) { }
+  constructor(
+    private accountService: AccountService,
+    private pageService: PageService
+  ) { }
 
   ngOnInit() {
     this.onCheckId();
+    this.onCreate();
   }
 
   onSubmit() {
@@ -76,6 +81,18 @@ export class SignUpComponent implements OnInit {
       } else {
         alert('This id is available!');
         this.checkedId = true;
+      }
+    });
+  }
+
+  onCreate() {
+    this.accountService.onCreate.subscribe(result => {
+      if (result) {
+        alert('Success!\nYou\'ve joined WOP.');
+        this.pageService.movePage({page: this.pageService.PAGES.login});
+      } else {
+        alert('Sign up failed!');
+        this.isSubmitted = false;
       }
     });
   }
