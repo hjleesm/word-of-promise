@@ -5,14 +5,16 @@
       </span>
   </div>
 
-  <h2>Log in to Word of promise</h2>
-  or <span id="wop-to-create" (click)="onCreate()">create an account</span><br>
-  <mat-form-field>
-    <input [(ngModel)]="id" matInput placeholder="ID">
-  </mat-form-field><br>
-  <mat-form-field>
-    <input matInput type="password" placeholder="Password" [(ngModel)]="password">
-  </mat-form-field><br>
-  <br>
-  <button mat-raised-button color="primary" (click)="onLogin()">Log In</button>
+  <form action="/api/account/login" method="post">
+    <h2>Log in to Word of promise</h2>
+    or <span id="wop-to-create" (click)="onCreate()">create an account</span><br>
+    <mat-form-field>
+      <input matInput placeholder="ID">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password">
+    </mat-form-field><br>
+    <br>
+    <button type="submit" mat-raised-button color="primary">Log In</button>
+  </form>
 </div>

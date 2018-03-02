@@ -7,16 +7,10 @@ import { PageService } from '../page.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @Input() id;
-  @Input() password;
 
   constructor(private pageService: PageService) { }
 
   ngOnInit() {
-  }
-
-  onLogin() {
-
   }
 
   onCreate() {
