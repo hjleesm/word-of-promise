@@ -8,6 +8,7 @@ const API_URL = environment.apiUrl;
 export class AccountService {
   onCreate: EventEmitter<any> = new EventEmitter();
   onCheck: EventEmitter<any> = new EventEmitter();
+  onLogin: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: Http) { }
 
@@ -30,11 +31,18 @@ export class AccountService {
     return this.http.get(API_URL + '/api/account/exist/' + id)
       .subscribe(data => {
         const body = data.json();
-        if (body.exist) {
-          this.onCheck.emit(true);
-        } else {
-          this.onCheck.emit(false);
-        }
+        this.onCheck.emit(body.exist);
       });
+  }
+
+  login(id, password) {
+    this.http.post(API_URL + '/api/account/login', {
+      id: id,
+      pw: password
+    }).subscribe(data => {
+      this.onLogin.emit(data.status === 200);
+    }, error => {
+      this.onLogin.emit(error.status === 200);
+    });
   }
 }
