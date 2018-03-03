@@ -19,9 +19,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.accountService.onLogin.subscribe(success => {
       if (success) {
-        // TODO: Success login
+        alert('login successful!');
+        this.pageService.movePage({page: this.pageService.PAGES.main});
       } else {
-        // TODO: fail login
+        alert('login failed!\n' + 'Invaild ID/Password');
       }
     });
   }

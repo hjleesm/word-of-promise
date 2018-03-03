@@ -36,7 +36,7 @@ export class AccountService {
   }
 
   login(id, password) {
-    this.http.post(API_URL + '/api/account/login', {
+    this.http.post(API_URL + '/api/auth', {
       id: id,
       pw: password
     }).subscribe(data => {
