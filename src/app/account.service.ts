@@ -45,4 +45,11 @@ export class AccountService {
       this.onLogin.emit(error.status === 200);
     });
   }
+
+  checkSession() {
+    this.http.get(API_URL + '/api/auth')
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
 }

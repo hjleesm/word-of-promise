@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageService } from '../page.service';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-main',
@@ -8,9 +9,13 @@ import { PageService } from '../page.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private pageService: PageService) { }
+  constructor(
+    private pageService: PageService,
+    private accountService: AccountService
+  ) { }
 
   ngOnInit() {
+    this.accountService.checkSession();
   }
 
   onEditBtn() {
