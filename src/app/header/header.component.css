@@ -1,0 +1,9 @@
+#wop-logo-wrapper {
+    float:left;
+    width: 50%;
+}
+
+#wop-account-wrapper {
+    display:inline-block; 
+    width: 50%;
+}

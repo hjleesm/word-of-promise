@@ -1,3 +1,7 @@
+#wop-header-wrapper {
+    max-width: 600px;
+}
+
 #wop-container {
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 14px;
