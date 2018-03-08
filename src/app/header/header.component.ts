@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PageService } from '../page.service';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,10 @@ import { PageService } from '../page.service';
 export class HeaderComponent implements OnInit {
   @Input() logoVisible: boolean;
 
-  constructor(private pageService: PageService) { }
+  constructor(
+    private pageService: PageService,
+    private accountService: AccountService
+  ) { }
 
   ngOnInit() {
   }
@@ -22,4 +26,7 @@ export class HeaderComponent implements OnInit {
     this.pageService.movePage({page: this.pageService.PAGES.signUp});
   }
 
+  onLogoutBtn() {
+    this.accountService.logout();
+  }
 }

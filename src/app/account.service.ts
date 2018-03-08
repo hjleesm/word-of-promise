@@ -46,6 +46,13 @@ export class AccountService {
     });
   }
 
+  logout() {
+    this.http.delete(API_URL + '/api/auth')
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
+
   checkSession() {
     this.http.get(API_URL + '/api/auth')
       .subscribe(data => {
