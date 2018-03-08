@@ -35,6 +35,8 @@ import { MatInputModule,
 import 'hammerjs';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { LoginComponent } from './login/login.component';
     EditTagComponent,
     BottomComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

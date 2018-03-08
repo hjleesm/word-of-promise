@@ -1,4 +1,7 @@
 <div align="center">
+    <div id="wop-header-wrapper">
+        <app-header [logoVisible]="page !== 0"></app-header>
+    </div>
     <div id="wop-container">
         <app-main *ngIf="page === 0"></app-main>
         <app-result *ngIf="page === 1" [searchWord]="searchWord"></app-result>
