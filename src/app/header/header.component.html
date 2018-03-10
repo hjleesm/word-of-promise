@@ -5,6 +5,8 @@
     <div id="wop-account-wrapper" align="right">
         <button mat-raised-button *ngIf="!isAuth" (click)="onLoginBtn()">Log In</button>
         <button mat-raised-button *ngIf="!isAuth" (click)="onSignUpBtn()">Sign Up</button>
-        <button mat-raised-button *ngIf="isAuth" (click)="onLogoutBtn()">Log Out</button>
+        <span *ngIf="isAuth">
+            {{account.id}}, Point: {{account.point}}&nbsp;&nbsp;<button mat-raised-button (click)="onLogoutBtn()">Log Out</button>
+        </span>
     </div>
 </div>

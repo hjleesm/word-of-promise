@@ -1,11 +1,14 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { environment } from '../environments/environment';
 import { Http, Response } from '@angular/http';
+import { Account } from './account';
 
 const API_URL = environment.apiUrl;
 
 @Injectable()
 export class AccountService {
+  account: Account;
+
   onCreate: EventEmitter<any> = new EventEmitter();
   onCheck: EventEmitter<any> = new EventEmitter();
   onLogin: EventEmitter<any> = new EventEmitter();
@@ -57,9 +60,19 @@ export class AccountService {
   checkSession() {
     this.http.get(API_URL + '/api/auth')
       .subscribe(data => {
-        this.onSession.emit(data.json());
+        var body = data.json();
+        
+        if(!this.account)
+          this.account = new Account(body.id, body.score);
+        
+        this.onSession.emit(true);
       }, data => {
-        this.onSession.emit(data._body);
+        this.account = null;
+        this.onSession.emit(false);
       });
+  }
+
+  getAccount() {
+    return this.account;
   }
 }

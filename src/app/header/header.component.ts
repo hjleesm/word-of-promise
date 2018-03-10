@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PageService } from '../page.service';
 import { AccountService } from '../account.service';
+import { Account } from '../account';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,7 @@ import { AccountService } from '../account.service';
 })
 export class HeaderComponent implements OnInit {
   @Input() logoVisible: boolean;
+  account: Account;
   isAuth = false;
 
   constructor(
@@ -18,10 +20,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.accountService.onSession.subscribe(data => {
-      if (data === "Unauthorized") {
-        this.isAuth = false;
-      } else {
+      if (data) {
         this.isAuth = true;
+        this.account = this.accountService.getAccount();
+      } else {
+        this.isAuth = false;
+        this.account = null;
       }
     });
   }
