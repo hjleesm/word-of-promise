@@ -1,19 +1,25 @@
 #wop-wrapper {
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 14px;
-
-    min-width: 200px;
-    max-width: 600px;
 }
 
 #wop-header-wrapper {
     font-size: 12px;
+
+    min-width: 200px;
+    max-width: 800px;
 }
 
 #wop-container {
+    min-width: 200px;
+    max-width: 600px;
+
     height: 100%;
 }
 
 #wop-bottom-wrapper {
     font-size: 12px;
+
+    min-width: 200px;
+    max-width: 800px;
 }
