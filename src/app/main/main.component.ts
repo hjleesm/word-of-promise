@@ -8,6 +8,7 @@ import { AccountService } from '../account.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  isAuth: boolean;
 
   constructor(
     private pageService: PageService,
@@ -15,6 +16,13 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.accountService.onSession.subscribe(data => {
+      if (data) {
+        this.isAuth = true;
+      } else {
+        this.isAuth = false;
+      }
+    });
     this.accountService.checkSession();
   }
 
