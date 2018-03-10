@@ -6,6 +6,8 @@
 #wop-account-wrapper {
     display:inline-block; 
     width: 50%;
+
+    font-size: 12px;
 }
 
 .mat-raised-button {
