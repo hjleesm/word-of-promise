@@ -9,6 +9,7 @@ import { AccountService } from '../account.service';
 })
 export class HeaderComponent implements OnInit {
   @Input() logoVisible: boolean;
+  isAuth = false;
 
   constructor(
     private pageService: PageService,
@@ -16,6 +17,13 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.accountService.onSession.subscribe(data => {
+      if (data === "Unauthorized") {
+        this.isAuth = false;
+      } else {
+        this.isAuth = true;
+      }
+    });
   }
 
   onLoginBtn() {

@@ -9,6 +9,7 @@ export class AccountService {
   onCreate: EventEmitter<any> = new EventEmitter();
   onCheck: EventEmitter<any> = new EventEmitter();
   onLogin: EventEmitter<any> = new EventEmitter();
+  onSession: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: Http) { }
 
@@ -49,14 +50,16 @@ export class AccountService {
   logout() {
     this.http.delete(API_URL + '/api/auth')
       .subscribe(data => {
-        console.log(data);
+        this.checkSession();
       });
   }
 
   checkSession() {
     this.http.get(API_URL + '/api/auth')
       .subscribe(data => {
-        console.log(data);
+        this.onSession.emit(data.json());
+      }, data => {
+        this.onSession.emit(data._body);
       });
   }
 }

@@ -3,8 +3,8 @@
         &nbsp;&nbsp;<app-logo *ngIf="logoVisible" [isBig]="false"></app-logo>
     </div>
     <div id="wop-account-wrapper" align="right">
-        <button mat-raised-button (click)="onLoginBtn()">Log In</button>
-        &nbsp;&nbsp;<button mat-raised-button (click)="onSignUpBtn()">Sign Up</button>
-        <button mat-raised-button (click)="onLogoutBtn()">Log Out</button>
+        <button mat-raised-button *ngIf="!isAuth" (click)="onLoginBtn()">Log In</button>
+        <button mat-raised-button *ngIf="!isAuth" (click)="onSignUpBtn()">Sign Up</button>
+        <button mat-raised-button *ngIf="isAuth" (click)="onLogoutBtn()">Log Out</button>
     </div>
 </div>
