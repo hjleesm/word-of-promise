@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PageService } from '../page.service';
 import { AccountService } from '../account.service';
 
@@ -7,7 +7,7 @@ import { AccountService } from '../account.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, OnDestroy {
   isAuth: boolean;
 
   constructor(
@@ -24,6 +24,10 @@ export class MainComponent implements OnInit {
       }
     });
     this.accountService.checkSession();
+  }
+
+  ngOnDestroy() {
+    this.accountService.onSession.unsubscribe();
   }
 
   onEditBtn() {

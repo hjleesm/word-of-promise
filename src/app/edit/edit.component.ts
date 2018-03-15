@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Word } from '../word';
 import { SearchDataService } from '../search-data.service';
 
@@ -7,7 +7,7 @@ import { SearchDataService } from '../search-data.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
-export class EditComponent implements OnInit {
+export class EditComponent implements OnInit, OnDestroy {
   books;
   chapters: number[] = [];
   verse: number[] = [];
@@ -17,7 +17,18 @@ export class EditComponent implements OnInit {
   selectedChapter;
   selectedVerse;
 
-  constructor(private searchDataService: SearchDataService) {
+  constructor(private searchDataService: SearchDataService) {}
+
+  ngOnInit() {
+    this.books = Word.getBookList();
+    this.selectedBook = this.books[0];
+    this.selectedChapter = 1;
+    this.selectedVerse = 1;
+
+    this.updateChapter();
+    this.updateVerse();
+    this.getWord();
+
     const self = this;
 
     this.searchDataService.onSearch.subscribe(function(value) {
@@ -40,15 +51,8 @@ export class EditComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.books = Word.getBookList();
-    this.selectedBook = this.books[0];
-    this.selectedChapter = 1;
-    this.selectedVerse = 1;
-
-    this.updateChapter();
-    this.updateVerse();
-    this.getWord();
+  ngOnDestroy() {
+    this.searchDataService.onSearch.unsubscribe();
   }
 
   updateSelectedBook(changedBook: string): void {

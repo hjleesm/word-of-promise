@@ -61,10 +61,11 @@ export class AccountService {
     this.http.get(API_URL + '/api/auth')
       .subscribe(data => {
         var body = data.json();
-        
-        if(!this.account)
+
+        if (!this.account) {
           this.account = new Account(body.id, body.score);
-        
+        }
+
         this.onSession.emit(true);
       }, data => {
         this.account = null;

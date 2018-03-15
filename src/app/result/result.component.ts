@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { SearchDataService } from '../search-data.service';
 import { Word } from '../word';
 
@@ -7,7 +7,7 @@ import { Word } from '../word';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent implements OnInit, OnDestroy {
   @Input() searchWord = '';
   result = [];
 
@@ -40,5 +40,9 @@ export class ResultComponent implements OnInit {
 
   ngOnInit() {
     this.searchDataService.searchByTag(this.searchWord);
+  }
+
+  ngOnDestroy() {
+    this.searchDataService.onSearch.unsubscribe();
   }
 }

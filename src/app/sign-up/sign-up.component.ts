@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { AccountService } from '../account.service';
 import { PageService } from '../page.service';
 
@@ -8,7 +8,7 @@ import { PageService } from '../page.service';
   styleUrls: ['./sign-up.component.css']
 })
 
-export class SignUpComponent implements OnInit {
+export class SignUpComponent implements OnInit, OnDestroy {
   EMAIL_REGEXP = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
   @Input() id = '';
@@ -27,6 +27,11 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
     this.onCheckId();
     this.onCreate();
+  }
+
+  ngOnDestroy() {
+    this.accountService.onCheck.unsubscribe();
+    this.accountService.onCreate.unsubscribe();
   }
 
   onSubmit() {

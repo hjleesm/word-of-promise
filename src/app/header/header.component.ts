@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { PageService } from '../page.service';
 import { AccountService } from '../account.service';
 import { Account } from '../account';
@@ -8,7 +8,7 @@ import { Account } from '../account';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   @Input() logoVisible: boolean;
   account: Account;
   isAuth = false;
@@ -28,6 +28,10 @@ export class HeaderComponent implements OnInit {
         this.account = null;
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.accountService.onSession.unsubscribe();
   }
 
   onLoginBtn() {

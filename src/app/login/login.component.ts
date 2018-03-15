@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { PageService } from '../page.service';
 import { AccountService } from '../account.service';
 
@@ -7,7 +7,7 @@ import { AccountService } from '../account.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   @Input() id;
   @Input() password;
 
@@ -19,12 +19,15 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.accountService.onLogin.subscribe(success => {
       if (success) {
-        alert('login successful!');
         this.pageService.movePage({page: this.pageService.PAGES.main});
       } else {
         alert('login failed!\n' + 'Invaild ID/Password');
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.accountService.onLogin.unsubscribe();
   }
 
   onLoginBtn() {
