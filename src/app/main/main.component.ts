@@ -9,6 +9,7 @@ import { AccountService } from '../account.service';
 })
 export class MainComponent implements OnInit, OnDestroy {
   isAuth: boolean;
+  onSession;
 
   constructor(
     private pageService: PageService,
@@ -16,7 +17,7 @@ export class MainComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.accountService.onSession.subscribe(data => {
+    this.onSession = this.accountService.onSession.subscribe(data => {
       if (data) {
         this.isAuth = true;
       } else {
@@ -27,7 +28,7 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.accountService.onSession.unsubscribe();
+    this.onSession.unsubscribe();
   }
 
   onEditBtn() {

@@ -11,13 +11,15 @@ export class LoginComponent implements OnInit, OnDestroy {
   @Input() id;
   @Input() password;
 
+  onLogin;
+
   constructor(
     private pageService: PageService,
     private accountService: AccountService
   ) { }
 
   ngOnInit() {
-    this.accountService.onLogin.subscribe(success => {
+    this.onLogin = this.accountService.onLogin.subscribe(success => {
       if (success) {
         this.pageService.movePage({page: this.pageService.PAGES.main});
       } else {
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.accountService.onLogin.unsubscribe();
+    this.onLogin.unsubscribe();
   }
 
   onLoginBtn() {
