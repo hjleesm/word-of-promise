@@ -23,7 +23,8 @@ export class EditTagComponent implements OnInit {
     if (this.tags.trim() === '') {
       tagArray = [];
     } else {
-      tagArray = this.tags.split(', ');
+      this.tags = this.tags.replace(/ /gi, ''); 
+      tagArray = this.tags.split(',');
     }
 
     this.searchDataService.applyTags(this.word.book, this.word.chapter,
