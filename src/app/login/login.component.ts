@@ -10,7 +10,6 @@ import { AccountService } from '../account.service';
 export class LoginComponent implements OnInit, OnDestroy {
   @Input() id;
   @Input() password;
-
   onLogin;
 
   constructor(

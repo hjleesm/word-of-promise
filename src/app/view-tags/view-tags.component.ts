@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchDataService } from '../search-data.service';
 
 @Component({
@@ -6,13 +6,14 @@ import { SearchDataService } from '../search-data.service';
   templateUrl: './view-tags.component.html',
   styleUrls: ['./view-tags.component.css']
 })
-export class ViewTagsComponent implements OnInit {
+export class ViewTagsComponent implements OnInit, OnDestroy {
   tags = [];
+  getTagList;
 
   constructor(private searchDataService: SearchDataService) { }
 
   ngOnInit() {
-    this.searchDataService.getTagList().subscribe(
+    this.getTagList = this.searchDataService.getTagList().subscribe(
       data => {
         const tagArray = data.json();
 
@@ -21,6 +22,10 @@ export class ViewTagsComponent implements OnInit {
         }
       }
     );
+  }
+
+  ngOnDestroy() {
+    this.getTagList.unsubscribe();
   }
 
 }

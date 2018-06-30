@@ -16,6 +16,7 @@ export class EditComponent implements OnInit, OnDestroy {
   selectedBook: string;
   selectedChapter;
   selectedVerse;
+  onSearch;
 
   constructor(private searchDataService: SearchDataService) {}
 
@@ -31,7 +32,7 @@ export class EditComponent implements OnInit, OnDestroy {
 
     const self = this;
 
-    this.searchDataService.onSearch.subscribe(function(value) {
+    this.onSearch = this.searchDataService.onSearch.subscribe(function(value) {
       const ret = value.json();
 
       for (const word of ret) {
@@ -52,7 +53,7 @@ export class EditComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.searchDataService.onSearch.unsubscribe();
+    this.onSearch.unsubscribe();
   }
 
   updateSelectedBook(changedBook: string): void {

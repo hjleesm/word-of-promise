@@ -10,10 +10,14 @@ import { Word } from '../word';
 export class ResultComponent implements OnInit, OnDestroy {
   @Input() searchWord = '';
   result = [];
+  onSearch;
+  onChangeSearchWord;
 
-  constructor(private searchDataService: SearchDataService) {
+  constructor(private searchDataService: SearchDataService) { }
+
+  ngOnInit() {
     const self = this;
-    searchDataService.onSearch.subscribe(function(value) {
+    this.onSearch = this.searchDataService.onSearch.subscribe(function(value) {
       self.result = [];
       const ret = value.json();
 
@@ -33,16 +37,15 @@ export class ResultComponent implements OnInit, OnDestroy {
       }
     });
 
-    searchDataService.onChangeSearchWord.subscribe(function(value) {
+    this.onChangeSearchWord = this.searchDataService.onChangeSearchWord.subscribe(function(value) {
       self.searchWord = value;
     });
-  }
 
-  ngOnInit() {
     this.searchDataService.searchByTag(this.searchWord);
   }
 
   ngOnDestroy() {
-    this.searchDataService.onSearch.unsubscribe();
+    this.onSearch.unsubscribe();
+    this.onChangeSearchWord.unsubscribe();
   }
 }

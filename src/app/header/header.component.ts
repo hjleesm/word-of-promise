@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Input() logoVisible: boolean;
   account: Account;
   isAuth = false;
+  onSession;
 
   constructor(
     private pageService: PageService,
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.accountService.onSession.subscribe(data => {
+    this.onSession = this.accountService.onSession.subscribe(data => {
       if (data) {
         this.isAuth = true;
         this.account = this.accountService.getAccount();
@@ -31,7 +32,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.accountService.onSession.unsubscribe();
+    this.onSession.unsubscribe();
   }
 
   onLoginBtn() {

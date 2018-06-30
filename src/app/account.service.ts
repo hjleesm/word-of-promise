@@ -60,7 +60,7 @@ export class AccountService {
   checkSession() {
     this.http.get(API_URL + '/api/auth')
       .subscribe(data => {
-        var body = data.json();
+        const body = data.json();
 
         if (!this.account) {
           this.account = new Account(body.id, body.score);

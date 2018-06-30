@@ -19,6 +19,9 @@ export class SignUpComponent implements OnInit, OnDestroy {
   checkedId = false;
   isSubmitted = false;
 
+  onCheck;
+  subOnCreate;
+
   constructor(
     private accountService: AccountService,
     private pageService: PageService
@@ -30,8 +33,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.accountService.onCheck.unsubscribe();
-    this.accountService.onCreate.unsubscribe();
+    this.onCheck.unsubscribe();
+    this.subOnCreate.unsubscribe();
   }
 
   onSubmit() {
@@ -79,7 +82,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   onCheckId() {
-    this.accountService.onCheck.subscribe(result => {
+    this.onCheck = this.accountService.onCheck.subscribe(result => {
       if (result) {
         alert('Id already in use by another user.');
         this.checkedId = false;
@@ -91,7 +94,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   onCreate() {
-    this.accountService.onCreate.subscribe(result => {
+    this.subOnCreate = this.accountService.onCreate.subscribe(result => {
       if (result) {
         alert('Success!\nYou\'ve joined WOP.');
         this.pageService.movePage({page: this.pageService.PAGES.login});
