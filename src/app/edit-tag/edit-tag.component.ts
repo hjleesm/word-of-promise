@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Word } from '../word';
 import { SearchDataService } from '../search-data.service';
 
@@ -7,10 +7,9 @@ import { SearchDataService } from '../search-data.service';
   templateUrl: './edit-tag.component.html',
   styleUrls: ['./edit-tag.component.css']
 })
-export class EditTagComponent implements OnInit, OnDestroy {
+export class EditTagComponent implements OnInit {
   @Input() word: Word;
   @Input() tags;
-  subApplyTags;
 
   constructor(private searchDataService: SearchDataService) { }
 
@@ -28,13 +27,9 @@ export class EditTagComponent implements OnInit, OnDestroy {
       tagArray = this.tags.split(',');
     }
 
-    this.subApplyTags = this.searchDataService.applyTags(this.word.book, this.word.chapter,
+    this.searchDataService.applyTags(this.word.book, this.word.chapter,
       this.word.verse, tagArray).subscribe(res => {
         this.word.tags = tagArray;
       });
-  }
-
-  ngOnDestroy() {
-    this.subApplyTags.unsubscribe();
   }
 }
