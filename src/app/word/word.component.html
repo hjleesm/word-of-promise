@@ -1,5 +1,5 @@
 <div id="wop-word">
   <b>{{word.getBook()}} {{word.chapter}}:{{word.verse}}</b><br>
-  {{word.content}}<br><br>
+  {{word.content}}<br>
   <app-tag *ngFor="let tag of word.tags" [tag]="tag"></app-tag>
 </div>
