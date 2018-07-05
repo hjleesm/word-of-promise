@@ -2,8 +2,10 @@
     margin-right: 4px;
     padding: 2px;
     border-radius: 4px;
+    /* background-color: brown; */
+    background: linear-gradient(60deg,#ffa726,#fb8c00);
+    box-shadow: 1px 1px silver;
 
-    color: blue;
-
+    color: white;
     cursor: pointer;
 }

@@ -1,7 +1,7 @@
 #wop-view-tags {
-    border-style: solid;
-    border-width: 1px;
+    margin: 0 1em 0 1em;
+    padding: 5px;
     border-radius: 5px;
-
-    background-color: antiquewhite;
+    background-color: white;
+    box-shadow: 1px 1px silver;
 }

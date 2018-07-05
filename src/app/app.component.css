@@ -1,6 +1,8 @@
 #wop-wrapper {
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 14px;
+
+    background-color: #eee;
 }
 
 #wop-header-wrapper {
@@ -12,7 +14,7 @@
 
 #wop-container {
     min-width: 200px;
-    /* max-width: 600px; */
+    max-width: 1000px;
 
     height: 100%;
 }
