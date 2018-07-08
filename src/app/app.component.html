@@ -6,7 +6,7 @@
         <div id="wop-container">
             <app-main *ngIf="page === 0"></app-main>
             <app-result *ngIf="page === 1" [searchWord]="searchWord"></app-result>
-            <app-edit *ngIf="page === 2"></app-edit>
+            <app-edit *ngIf="page === 2" [editInfo]="editInfo"></app-edit>
             <app-login *ngIf="page === 3"></app-login>
             <app-sign-up *ngIf="page === 4"></app-sign-up>
         </div>

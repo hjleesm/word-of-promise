@@ -6,3 +6,15 @@
     border-radius: 10px;
     box-shadow: 1px 1px silver;
 }
+
+#word-edit {
+    float: right;
+
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 4px;
+
+    color: #ffa726;
+
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Word } from '../word';
 import { SearchDataService } from '../search-data.service';
 
@@ -8,6 +8,7 @@ import { SearchDataService } from '../search-data.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit, OnDestroy {
+  @Input() editInfo;
   books;
   chapters: number[] = [];
   verse: number[] = [];
@@ -22,9 +23,9 @@ export class EditComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.books = Word.getBookList();
-    this.selectedBook = this.books[0];
-    this.selectedChapter = 1;
-    this.selectedVerse = 1;
+    this.selectedBook = this.books[this.editInfo.book];
+    this.selectedChapter = this.editInfo.chapter;
+    this.selectedVerse = this.editInfo.verse;
 
     this.updateChapter();
     this.updateVerse();
@@ -102,5 +103,4 @@ export class EditComponent implements OnInit, OnDestroy {
   }
 
   // TODO: 소스 정리 하기
-  // TODO: 말씀 변경시 Tag 리스트도 변경되도록 수정.
 }

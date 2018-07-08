@@ -1,3 +1,4 @@
+<div *ngIf="isAuth" id="word-edit" (click)="onEditBtn()"><b>Edit</b></div>
 <div id="wop-word">
   <b>{{word.getBook()}} {{word.chapter}}:{{word.verse}}</b><br>
   {{word.content}}<br>
