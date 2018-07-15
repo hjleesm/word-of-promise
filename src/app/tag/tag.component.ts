@@ -9,6 +9,7 @@ import { PageService } from '../page.service';
 })
 export class TagComponent implements OnInit {
   @Input() tag;
+  @Input() size;
 
   constructor(
     private searchDataService: SearchDataService,
