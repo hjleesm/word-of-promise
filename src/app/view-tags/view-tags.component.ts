@@ -23,8 +23,6 @@ export class ViewTagsComponent implements OnInit, OnDestroy {
             text: tag.text, 
             size: Math.floor(tag.count / unit) + 1
           });
-
-          console.log(Math.floor(tag.count / unit) + 1);
         }
       }
     );
