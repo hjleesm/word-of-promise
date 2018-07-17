@@ -1,6 +1,7 @@
 <div align="left">
-    <b>Tags: </b><mat-form-field>
-        <input matInput placeholder="Tags" id="wop-tag-input" [(ngModel)]="tags">
+    <b>Tags: </b>
+    <mat-form-field class="wop-tag-wrapper">
+        <input id="wop-tag-input" matInput placeholder="Tags" [(ngModel)]="tags">
     </mat-form-field>
     <button mat-button (click)="applyTags()" color="primary">Apply</button>
 </div>
