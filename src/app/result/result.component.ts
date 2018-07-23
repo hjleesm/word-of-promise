@@ -41,7 +41,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       self.searchWord = value;
     });
 
-    this.searchDataService.searchByTag(this.searchWord);
+    this.searchDataService.searchWords(this.searchWord);
   }
 
   ngOnDestroy() {

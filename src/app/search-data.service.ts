@@ -20,6 +20,15 @@ export class SearchDataService {
     });
   }
 
+  public searchWords(searchWord) {
+    return this.http.get(
+      API_URL + '/api/search/' + searchWord
+    ).subscribe(data => {
+      this.onSearch.emit(data);
+      this.onChangeSearchWord.emit(searchWord);
+    });
+  }
+
   public search(book, chapter, verse) {
     if (book < 10) {
       book = '0' + book;

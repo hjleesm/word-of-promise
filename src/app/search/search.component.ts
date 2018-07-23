@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
     }
 
     if (this.pageService.getPage() === this.pageService.PAGES.result) {
-      this.searchDataService.searchByTag(this.searchWord);
+      this.searchDataService.searchWords(this.searchWord);
     } else {
       this.pageService.movePage({
         page: this.pageService.PAGES.result,
