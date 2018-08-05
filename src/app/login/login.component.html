@@ -5,7 +5,7 @@
     <input [(ngModel)]="id" matInput placeholder="ID">
   </mat-form-field><br>
   <mat-form-field>
-    <input matInput type="password" placeholder="Password" [(ngModel)]="password">
+    <input matInput type="password" placeholder="Password" [(ngModel)]="password" (keyup.enter)="onLoginBtn()">
   </mat-form-field><br>
   <br>
   <button mat-raised-button color="primary" (click)="onLoginBtn()">Log In</button>
