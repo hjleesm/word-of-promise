@@ -9,3 +9,7 @@
 .wop-logo-small {
     font-size: 10px;
 }
+
+img {
+    vertical-align: bottom;
+}
