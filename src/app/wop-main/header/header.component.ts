@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { PageService } from '../page.service';
-import { AccountService } from '../account.service';
-import { Account } from '../account';
+import { PageService } from '../../page.service';
+import { AccountService } from '../../account.service';
+import { Account } from '../../account';
 
 @Component({
   selector: 'app-header',

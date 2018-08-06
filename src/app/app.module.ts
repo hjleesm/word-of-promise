@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { WopMainModule } from './wop-main/wop-main.module';
+import { ResultModule } from './result/result.module';
+
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { SearchComponent } from './search/search.component';
@@ -18,9 +21,7 @@ import { ResultComponent } from './result/result.component';
 import { WordComponent } from './word/word.component';
 import { EditComponent } from './edit/edit.component';
 import { TagComponent } from './tag/tag.component';
-import { LogoComponent } from './logo/logo.component';
 import { EditTagComponent } from './edit-tag/edit-tag.component';
-import { BottomComponent } from './bottom/bottom.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule,
@@ -36,8 +37,6 @@ import 'hammerjs';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
-import { HeaderComponent } from './header/header.component';
-import { AdsenseComponent } from './adsense/adsense.component';
 
 @NgModule({
   declarations: [
@@ -49,19 +48,20 @@ import { AdsenseComponent } from './adsense/adsense.component';
     WordComponent,
     EditComponent,
     TagComponent,
-    LogoComponent,
     EditTagComponent,
-    BottomComponent,
     SignUpComponent,
     LoginComponent,
-    ProfileComponent,
-    HeaderComponent,
-    AdsenseComponent
+    ProfileComponent
   ],
   imports: [
+    /* Angular Module */
     BrowserModule,
     FormsModule,
     HttpModule,
+    /* App Module */
+    WopMainModule,
+    ResultModule,
+    /* Angular Meterial Module */
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,

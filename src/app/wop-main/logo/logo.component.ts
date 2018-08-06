@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PageService } from '../page.service';
+import { PageService } from '../../page.service';
 
 @Component({
   selector: 'app-logo',
