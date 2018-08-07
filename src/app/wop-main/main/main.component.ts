@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PageService } from '../page.service';
-import { AccountService } from '../account.service';
+import { PageService } from '../../page.service';
+import { AccountService } from '../../account.service';
 
 @Component({
   selector: 'app-main',

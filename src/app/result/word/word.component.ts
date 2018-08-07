@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Word } from '../word';
-import { PageService } from '../page.service';
-import { AccountService } from '../account.service';
+import { Word } from '../../word';
+import { PageService } from '../../page.service';
+import { AccountService } from '../../account.service';
 
 @Component({
   selector: 'app-word',
@@ -18,7 +18,7 @@ export class WordComponent implements OnInit, OnDestroy {
     private accountService: AccountService
   ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.onSession = this.accountService.onSession.subscribe(data => {
       if (data) {
         this.isAuth = true;

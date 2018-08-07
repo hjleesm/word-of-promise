@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PageService } from '../page.service';
-import { SearchDataService } from '../search-data.service';
+import { PageService } from '../../page.service';
+import { SearchDataService } from '../../search-data.service';
 
 @Component({
   selector: 'app-search',

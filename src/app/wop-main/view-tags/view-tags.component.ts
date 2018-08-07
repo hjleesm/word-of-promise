@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SearchDataService } from '../search-data.service';
+import { SearchDataService } from '../../search-data.service';
 
 @Component({
   selector: 'app-view-tags',
@@ -20,7 +20,7 @@ export class ViewTagsComponent implements OnInit, OnDestroy {
 
         for (const tag of tagArray) {
           this.tags.push({
-            text: tag.text, 
+            text: tag.text,
             size: Math.floor(tag.count / unit) + 1
           });
         }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { SearchDataService } from '../search-data.service';
-import { Word } from '../word';
+import { SearchDataService } from '../../search-data.service';
+import { Word } from '../../word';
 
 @Component({
   selector: 'app-result',

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Word } from '../word';
-import { SearchDataService } from '../search-data.service';
+import { Word } from '../../word';
+import { SearchDataService } from '../../search-data.service';
 
 @Component({
   selector: 'app-edit-tag',
