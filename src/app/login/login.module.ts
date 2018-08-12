@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditComponent } from './edit/edit.component';
-import { EditTagComponent } from './edit-tag/edit-tag.component';
-import { ResultModule } from '../result/result.module';
 import { FormsModule } from '@angular/forms';
 
+import { LoginComponent } from './login/login.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatInputModule,
+import { MatInputModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatPaginatorModule,
@@ -19,7 +17,6 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    ResultModule,
     FormsModule,
     /* Angular Meterial Module */
     BrowserAnimationsModule,
@@ -31,13 +28,7 @@ import {
     MatAutocompleteModule,
     MatSelectModule
   ],
-  declarations: [
-    EditComponent,
-    EditTagComponent
-  ],
-  exports: [
-    EditComponent,
-    EditTagComponent
-  ]
+  declarations: [LoginComponent],
+  exports: [LoginComponent]
 })
-export class EditModule { }
+export class LoginModule { }

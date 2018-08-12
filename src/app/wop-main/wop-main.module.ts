@@ -11,10 +11,29 @@ import { SearchComponent } from './search/search.component';
 import { ViewTagsComponent } from './view-tags/view-tags.component';
 import { TagComponent } from './tag/tag.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatAutocompleteModule,
+  MatSelectModule
+} from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    /* Angular Meterial Module */
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatAutocompleteModule,
+    MatSelectModule
   ],
   declarations: [
     HeaderComponent,

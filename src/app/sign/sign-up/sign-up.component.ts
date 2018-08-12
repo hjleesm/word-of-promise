@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { AccountService } from '../account.service';
-import { PageService } from '../page.service';
+import { AccountService } from '../../account.service';
+import { PageService } from '../../page.service';
 
 @Component({
   selector: 'app-sign-up',
