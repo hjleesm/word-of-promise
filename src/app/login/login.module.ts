@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { LoginRoutingModule } from './login-routing.module';
 
 import { LoginComponent } from './login/login.component';
 
@@ -14,6 +15,7 @@ import { MatInputModule,
   MatSelectModule
 } from '@angular/material';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { MatInputModule,
     MatPaginatorModule,
     MatProgressBarModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    LoginRoutingModule
   ],
   declarations: [LoginComponent],
   exports: [LoginComponent]

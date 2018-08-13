@@ -13,6 +13,7 @@ import { MatInputModule,
   MatAutocompleteModule,
   MatSelectModule
 } from '@angular/material';
+import { SignRoutingModule } from './sign-routing.module';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { MatInputModule,
     MatPaginatorModule,
     MatProgressBarModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    SignRoutingModule
   ],
   declarations: [SignUpComponent],
   exports: [SignUpComponent]

@@ -4,6 +4,7 @@ import { EditComponent } from './edit/edit.component';
 import { EditTagComponent } from './edit-tag/edit-tag.component';
 import { ResultModule } from '../result/result.module';
 import { FormsModule } from '@angular/forms';
+import { EditRoutingModule } from './edit-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -15,6 +16,7 @@ import {
   MatAutocompleteModule,
   MatSelectModule
 } from '@angular/material';
+
 
 @NgModule({
   imports: [
@@ -29,7 +31,8 @@ import {
     MatPaginatorModule,
     MatProgressBarModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    EditRoutingModule
   ],
   declarations: [
     EditComponent,

@@ -20,6 +20,7 @@ import { MatInputModule,
   MatAutocompleteModule,
   MatSelectModule
 } from '@angular/material';
+import { MainRoutingModule } from './main-routing.module';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { MatInputModule,
     MatPaginatorModule,
     MatProgressBarModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    MainRoutingModule
   ],
   declarations: [
     HeaderComponent,
