@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PageService } from '../../page.service';
 import { SearchDataService } from '../../search-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -9,17 +9,17 @@ import { SearchDataService } from '../../search-data.service';
 })
 export class SearchComponent implements OnInit {
   @Input() searchWord = '';
-  isBig = true;
+  @Input() isBig = true;
 
   constructor(
-    private pageService: PageService,
-    private searchDataService: SearchDataService
+    private searchDataService: SearchDataService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    if (this.pageService.getPage() === this.pageService.PAGES.result) {
-      this.isBig = false;
-    }
+    // if (this.pageService.getPage() === this.pageService.PAGES.result) {
+    //   this.isBig = false;
+    // }
   }
 
   onSearchBtn() {
@@ -28,13 +28,14 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    if (this.pageService.getPage() === this.pageService.PAGES.result) {
+    if (!this.isBig) {
       this.searchDataService.searchWords(this.searchWord);
     } else {
-      this.pageService.movePage({
-        page: this.pageService.PAGES.result,
-        searchWord: this.searchWord
-      });
+      this.router.navigate(['result', this.searchWord]);
+      // this.pageService.movePage({
+      //   page: this.pageService.PAGES.result,
+      //   searchWord: this.searchWord
+      // });
     }
     // this.pageService.onSearchBtn(this.searchWord);
   }

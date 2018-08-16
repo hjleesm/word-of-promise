@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { PageService } from '../../page.service';
 import { AccountService } from '../../account.service';
 import { Account } from '../../account';
 
@@ -14,10 +13,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAuth = false;
   onSession;
 
-  constructor(
-    private pageService: PageService,
-    private accountService: AccountService
-  ) { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit() {
     this.onSession = this.accountService.onSession.subscribe(data => {
@@ -36,11 +32,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onLoginBtn() {
-    this.pageService.movePage({page: this.pageService.PAGES.login});
+    // this.pageService.movePage({page: this.pageService.PAGES.login});
   }
 
   onSignUpBtn() {
-    this.pageService.movePage({page: this.pageService.PAGES.signUp});
+    // this.pageService.movePage({page: this.pageService.PAGES.signUp});
   }
 
   onLogoutBtn() {

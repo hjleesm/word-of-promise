@@ -5,7 +5,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 const routes: Routes = [{ path: 'sign', component: SignUpComponent }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   declarations: []
 })

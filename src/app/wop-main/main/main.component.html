@@ -2,7 +2,7 @@
     <div id = "wop-logo-wrapper">
         <app-logo [isBig]="true"></app-logo><br>
     </div>
-    <app-search></app-search>
+    <app-search [isBig]="true"></app-search>
     <span *ngIf="isAuth">
         &nbsp;&nbsp;<button mat-raised-button (click)="onEditBtn()">Edit Tag</button>
     </span>

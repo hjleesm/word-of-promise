@@ -5,7 +5,7 @@ import { MainComponent } from './main/main.component';
 const routes: Routes = [{ path: '', component: MainComponent }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   declarations: []
 })

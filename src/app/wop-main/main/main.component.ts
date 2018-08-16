@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PageService } from '../../page.service';
 import { AccountService } from '../../account.service';
 
 @Component({
@@ -11,10 +10,7 @@ export class MainComponent implements OnInit, OnDestroy {
   isAuth: boolean;
   onSession;
 
-  constructor(
-    private pageService: PageService,
-    private accountService: AccountService
-  ) { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit() {
     this.onSession = this.accountService.onSession.subscribe(data => {
@@ -32,6 +28,6 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   onEditBtn() {
-    this.pageService.movePage({page: this.pageService.PAGES.edit});
+    // this.pageService.movePage({page: this.pageService.PAGES.edit});
   }
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { WopMainModule } from './wop-main/wop-main.module';
 import { ResultModule } from './result/result.module';
@@ -12,16 +13,18 @@ import { AppComponent } from './app.component';
 
 // Custom SERVICE
 import { SearchDataService } from './search-data.service';
-import { PageService} from './page.service';
 import { AccountService } from './account.service';
 
 import 'hammerjs';
+
+const routes: Routes = [{ path: '', component: AppComponent }];
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     /* Angular Module */
     BrowserModule,
     HttpModule,
@@ -34,7 +37,6 @@ import 'hammerjs';
   ],
   providers: [
     SearchDataService,
-    PageService,
     AccountService
   ],
   bootstrap: [AppComponent]

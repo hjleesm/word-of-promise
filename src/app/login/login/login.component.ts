@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { PageService } from '../../page.service';
 import { AccountService } from '../../account.service';
 
 @Component({
@@ -13,14 +12,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   onLogin;
 
   constructor(
-    private pageService: PageService,
     private accountService: AccountService
   ) { }
 
   ngOnInit() {
     this.onLogin = this.accountService.onLogin.subscribe(success => {
       if (success) {
-        this.pageService.movePage({page: this.pageService.PAGES.main});
+        // this.pageService.movePage({page: this.pageService.PAGES.main});
       } else {
         alert('login failed!\n' + 'Invaild ID/Password');
       }
@@ -36,7 +34,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onCreate() {
-    this.pageService.movePage({page: this.pageService.PAGES.signUp});
+    // this.pageService.movePage({page: this.pageService.PAGES.signUp});
   }
 
 

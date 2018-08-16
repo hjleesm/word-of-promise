@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { SearchDataService } from '../../search-data.service';
 import { Word } from '../../word';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -13,7 +14,10 @@ export class ResultComponent implements OnInit, OnDestroy {
   onSearch;
   onChangeSearchWord;
 
-  constructor(private searchDataService: SearchDataService) { }
+  constructor(
+    private searchDataService: SearchDataService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     const self = this;
