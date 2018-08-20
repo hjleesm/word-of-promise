@@ -20,6 +20,9 @@ export class ResultComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.searchWord = this.route.snapshot.params.searchWord;
+    const type = this.route.snapshot.params.type;
+
     const self = this;
     this.onSearch = this.searchDataService.onSearch.subscribe(function(value) {
       self.result = [];
@@ -45,7 +48,11 @@ export class ResultComponent implements OnInit, OnDestroy {
       self.searchWord = value;
     });
 
-    this.searchDataService.searchWords(this.searchWord);
+    if (type === 'word') {
+      this.searchDataService.searchWords(this.searchWord);
+    } else {
+      this.searchDataService.searchByTag(this.searchWord);
+    }
   }
 
   ngOnDestroy() {

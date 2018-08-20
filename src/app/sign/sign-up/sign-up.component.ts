@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { AccountService } from '../../account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -21,7 +22,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
   onCheck;
   subOnCreate;
 
-  constructor(private accountService: AccountService) { }
+  constructor(
+    private accountService: AccountService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.onCheckId();
@@ -93,7 +97,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.subOnCreate = this.accountService.onCreate.subscribe(result => {
       if (result) {
         alert('Success!\nYou\'ve joined WOP.');
-        // this.pageService.movePage({page: this.pageService.PAGES.login});
+        this.router.navigate(['/']);
       } else {
         alert('Sign up failed!');
         this.isSubmitted = false;

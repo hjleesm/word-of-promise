@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { AccountService } from '../../account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   onLogin;
 
   constructor(
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.onLogin = this.accountService.onLogin.subscribe(success => {
       if (success) {
+        this.router.navigate(['/']);
         // this.pageService.movePage({page: this.pageService.PAGES.main});
       } else {
         alert('login failed!\n' + 'Invaild ID/Password');

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Word } from '../../word';
 import { AccountService } from '../../account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-word',
@@ -12,7 +13,10 @@ export class WordComponent implements OnInit, OnDestroy {
   isAuth: boolean;
   onSession;
 
-  constructor(private accountService: AccountService) { }
+  constructor(
+    private accountService: AccountService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.onSession = this.accountService.onSession.subscribe(data => {
@@ -30,6 +34,7 @@ export class WordComponent implements OnInit, OnDestroy {
   }
 
   onEditBtn() {
+    this.router.navigate(['edit', this.word.book - 1, this.word.chapter, this.word.verse]);
     // this.pageService.movePage({
     //   page: this.pageService.PAGES.edit,
     //   book: this.word.book - 1,

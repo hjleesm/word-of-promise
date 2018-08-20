@@ -28,15 +28,17 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    if (!this.isBig) {
-      this.searchDataService.searchWords(this.searchWord);
-    } else {
-      this.router.navigate(['result', this.searchWord]);
-      // this.pageService.movePage({
-      //   page: this.pageService.PAGES.result,
-      //   searchWord: this.searchWord
-      // });
-    }
+    this.router.navigate(['result', 'word', this.searchWord]);
+
+    // if (!this.isBig) {
+    //   this.searchDataService.searchWords(this.searchWord);
+    // } else {
+    //   this.router.navigate(['result', this.searchWord]);
+    //   // this.pageService.movePage({
+    //   //   page: this.pageService.PAGES.result,
+    //   //   searchWord: this.searchWord
+    //   // });
+    // }
     // this.pageService.onSearchBtn(this.searchWord);
   }
 
