@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { AccountService } from '../../account.service';
 import { Account } from '../../account';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,14 @@ import { Account } from '../../account';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  @Input() logoVisible: boolean;
   account: Account;
   isAuth = false;
   onSession;
 
-  constructor(private accountService: AccountService) { }
+  constructor(
+    private accountService: AccountService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.onSession = this.accountService.onSession.subscribe(data => {
@@ -32,11 +35,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onLoginBtn() {
-    // this.pageService.movePage({page: this.pageService.PAGES.login});
+    this.router.navigate(['login']);
   }
 
   onSignUpBtn() {
-    // this.pageService.movePage({page: this.pageService.PAGES.signUp});
+    this.router.navigate(['sign']);
   }
 
   onLogoutBtn() {

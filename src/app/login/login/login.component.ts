@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.onLogin = this.accountService.onLogin.subscribe(success => {
       if (success) {
         this.router.navigate(['/']);
-        // this.pageService.movePage({page: this.pageService.PAGES.main});
       } else {
         alert('login failed!\n' + 'Invaild ID/Password');
       }
@@ -37,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onCreate() {
-    // this.pageService.movePage({page: this.pageService.PAGES.signUp});
+    this.router.navigate(['sign']);
   }
 
 

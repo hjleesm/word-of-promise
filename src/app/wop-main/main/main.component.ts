@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AccountService } from '../../account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,10 @@ export class MainComponent implements OnInit, OnDestroy {
   isAuth: boolean;
   onSession;
 
-  constructor(private accountService: AccountService) { }
+  constructor(
+    private accountService: AccountService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.onSession = this.accountService.onSession.subscribe(data => {
@@ -28,6 +32,6 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   onEditBtn() {
-    // this.pageService.movePage({page: this.pageService.PAGES.edit});
+    this.router.navigate(['edit']);
   }
 }

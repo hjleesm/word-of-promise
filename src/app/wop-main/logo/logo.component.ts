@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logo',
@@ -8,13 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LogoComponent implements OnInit {
   @Input() isBig: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   onLogo() {
-    // this.pageService.movePage({page: this.pageService.PAGES.main});
+    this.router.navigate(['/']);
   }
 
 }

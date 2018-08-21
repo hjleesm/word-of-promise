@@ -1,6 +1,6 @@
 <div class="wop-sign-top">
     <div id="wop-logo-wrapper" align="left">
-        &nbsp;&nbsp;<app-logo *ngIf="logoVisible" [isBig]="false"></app-logo>
+        &nbsp;&nbsp;<app-logo [isBig]="false"></app-logo>
     </div>
     <div id="wop-account-wrapper" align="right">
         <button mat-raised-button *ngIf="!isAuth" (click)="onLoginBtn()">Log In</button>
