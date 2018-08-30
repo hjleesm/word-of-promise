@@ -32,6 +32,6 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   onEditBtn() {
-    this.router.navigate(['edit']);
+    this.router.navigate(['edit', 0, 1, 1]);
   }
 }

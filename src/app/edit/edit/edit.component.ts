@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Word } from '../../word';
 import { SearchDataService } from '../../search-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -8,7 +9,6 @@ import { SearchDataService } from '../../search-data.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit, OnDestroy {
-  @Input() editInfo;
   books;
   chapters: number[] = [];
   verse: number[] = [];
@@ -19,13 +19,20 @@ export class EditComponent implements OnInit, OnDestroy {
   selectedVerse;
   onSearch;
 
-  constructor(private searchDataService: SearchDataService) {}
+  constructor(
+    private searchDataService: SearchDataService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    var b = this.route.snapshot.params.book || 0;
+    var c = this.route.snapshot.params.chapter || 1;
+    var v = this.route.snapshot.params.verse || 1;
+
     this.books = Word.getBookList();
-    this.selectedBook = this.books[this.editInfo.book];
-    this.selectedChapter = this.editInfo.chapter;
-    this.selectedVerse = this.editInfo.verse;
+    this.selectedBook = this.books[b];
+    this.selectedChapter = c;
+    this.selectedVerse = v;
 
     this.updateChapter();
     this.updateVerse();
